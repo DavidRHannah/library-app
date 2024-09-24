@@ -16,6 +16,106 @@ body{
     background: rgb(227, 220, 189);
     border-radius: 1rem;
 }
+
+.new-book {
+    background-color: #fff;
+    color: #007BFF;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.new-book:hover {
+    background-color: #e0e0e0;
+}
+
+.book-modal {
+    padding: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+.book-modal h2 {
+    margin: 0 0 1rem;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.book-form label {
+    margin: 0.5rem 0 0.2rem;
+}
+
+.book-form input,
+.book-form select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#page-count{
+    width: 10%;
+    text-align: center;
+}
+#have-read{
+    width: 10%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+}
+.modal-btn-container{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.add-book {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 25%;
+}
+
+.add-book:hover {
+    background-color: #0056b3;
+}
+
+.close-modal {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 25%;
+}
+
+.close-modal:hover {
+    background-color: #c82333;
+}
+
+.bookModal
+::backdrop {
+    background: rgba(107, 107, 107, 0.653);
+}
 .new-book{
     border: none;
     background: none;

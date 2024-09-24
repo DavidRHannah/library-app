@@ -92,3 +92,33 @@ function displayLibrary() {
 }
 
 displayLibrary();
+
+const modal = document.querySelector('.book-modal');
+const openModalButton = document.querySelector('.new-book');
+const closeModalButton = document.querySelector('.close-modal');
+const addBookButton = document.querySelector('.add-book');
+
+openModalButton.addEventListener('click', () => {
+    modal.showModal();
+});
+
+closeModalButton.addEventListener('click', () => {
+    modal.close();
+});
+
+addBookButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pageCount = document.getElementById('page-count').value;
+    const haveRead = document.getElementById('have-read').value;
+
+    const newBook = new Book(title, author, pageCount, haveRead);
+    addBookToLibrary(newBook);
+    console.log(newBook);
+
+    modal.close();
+    document.querySelector(".cards-container").innerText = "";
+    displayLibrary();
+});
