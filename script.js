@@ -6,19 +6,17 @@ class Book {
         this.author = author;
         this.pageCount = pageCount;
         this.haveRead = haveRead;
-
-        
     }
     info = function () {
             return `${this.title} by ${this.author}, ${this.pageCount} pages and has ${this.haveRead ? 'been' : 'not been'} read.`;
     };
-    displayCard = function() {
+    displayCard = function () {
         var cardContainer = document.createElement("div");
         cardContainer.style.display = "flex";
         cardContainer.style.width = "auto";
         cardContainer.style.flexDirection = "column";
         cardContainer.style.flexWrap = "nowrap";
-        cardContainer.style.justifyContent = "center";
+        cardContainer.style.justifyContent = "space-between";
         cardContainer.style.background = "rgb(181, 222, 239)";
         cardContainer.style.padding = "1rem";
         cardContainer.style.gap = "0.4rem";
@@ -26,35 +24,56 @@ class Book {
         cardContainer.style.boxShadow = "rgba(255, 255, 255, 0.09) 0px 3px 12px";
 
         var title = document.createElement("div");
-        title.className = "title";
-        title.fontSize = "1.3rem";        
+        title.style.fontSize = "1.3rem";        
         title.innerText = `${this.title}`;
 
         var author = document.createElement("div");
-        author.className = "author";
         author.innerText = `${this.author}`;
 
         var pageCount = document.createElement("div");
-        pageCount.className = "page-count";
         pageCount.innerText = `${this.pageCount} pages`;
 
-        var haveRead = document.createElement("div");
-        haveRead.className = "have-read";
-        haveRead.innerText = `${this.haveRead ? 'Read' : 'Not Read'}`;
-        
+        var cardBtnContainer = document.createElement("div");
+        cardBtnContainer.style.display = "flex";
+        cardBtnContainer.style.justifyContent = "flex-end"
+        cardBtnContainer.style.gap = "0.5rem";
+
+        var haveReadBtn = document.createElement("button");
+        haveReadBtn.innerText = `${this.haveRead ? 'Read' : 'Not Read'}`;
+        haveReadBtn.onclick = () => {
+            this.haveRead = !this.haveRead;
+            haveReadBtn.innerText = `${this.haveRead ? 'Read' : 'Not Read'}`;
+        };
+
+        var removeBookBtn = document.createElement("button");
+        removeBookBtn.innerText = "Remove Book";
+        removeBookBtn.onclick = () => {
+            removeBook(this.id);
+            document.querySelector(".cards-container").innerText = "";
+            displayLibrary();
+        };
+
+        cardBtnContainer.appendChild(haveReadBtn);
+        cardBtnContainer.appendChild(removeBookBtn);
+
         cardContainer.appendChild(title);
         cardContainer.appendChild(author);
         cardContainer.appendChild(pageCount);
-        cardContainer.appendChild(haveRead);
+        cardContainer.appendChild(cardBtnContainer);
 
         document.querySelector(".cards-container").appendChild(cardContainer);
-
-    }
+    };
 }
 
 function addBookToLibrary(book) {
     book.id = myLibrary.length;
     myLibrary.push(book);
+}
+function removeBook(bookId) {
+    const index = myLibrary.findIndex(book => book.id === bookId);
+    if (index !== -1) {
+        myLibrary.splice(index, 1);
+    }
 }
 
 // Example data
