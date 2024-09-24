@@ -1,0 +1,83 @@
+body{
+    font-family: sans-serif, Helvetica;
+    background: rgb(246, 246, 246);
+    margin: 0;
+    margin-left: 2rem;
+    margin-right: 2rem; 
+}
+.navbar-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: auto;
+    padding: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background: rgb(227, 220, 189);
+    border-radius: 1rem;
+}
+.new-book{
+    border: none;
+    background: none;
+    text-decoration: none;
+    box-shadow: rgba(255, 255, 255, 0.09) 0px 3px 12px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: rgb(249, 139, 106);
+    color: white;
+    cursor: pointer;
+}
+
+.cards-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+.card{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background: rgb(181, 222, 239);
+    padding: 1rem;
+    gap: 0.2rem;
+    border-radius: 1rem;
+    box-shadow: rgba(255, 255, 255, 0.09) 0px 3px 12px;
+}
+.title{
+    font-size: 1.3rem;
+}
+
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: auto;
+    padding: 2rem;
+    background: rgb(227, 220, 189);
+    border-radius: 1rem;
+    margin-top: 6rem;
+}
+.links{
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+.links a{
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 200ms ease;
+    color: rgb(113, 113, 113);
+}
+.links a:hover{
+    color: black;
+}
+.copyright{
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(74, 74, 74);
+}
